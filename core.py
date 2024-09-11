@@ -1,3 +1,4 @@
+from collections import defaultdict
 from typing import List
 
 
@@ -19,3 +20,13 @@ class Solution:
             difference = target - nums[i]
             if difference in num_dict and num_dict[difference] != i:
                 return [i, num_dict[difference]]
+
+    @staticmethod
+    def groupAnagrams(strs: List[str]) -> List[List[str]]:
+        anagrams = defaultdict(list)
+
+        for s in strs:
+            sorted_str = tuple(sorted(s))
+            anagrams[sorted_str].append(s)
+
+        return list(anagrams.values())

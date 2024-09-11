@@ -1,3 +1,4 @@
+from symtable import Class
 from typing import List
 
 from pydantic import BaseModel
@@ -14,3 +15,6 @@ class Anagram(BaseModel):
 class TwoSum(BaseModel):
     nums: List[int]
     target: int
+
+class GroupAnagrams(BaseModel):
+    strs: List[str]

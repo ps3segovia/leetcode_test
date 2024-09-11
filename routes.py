@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
 from core import Solution
-from models import NumList, Anagram, TwoSum
+from models import NumList, Anagram, TwoSum, GroupAnagrams
 
 router = APIRouter()
 
@@ -21,4 +21,8 @@ def isAnagram(data: Anagram):
 @router.post("/twoSum")
 def twoSum(data: TwoSum):
     result = Solution.twoSum(data.nums, data.target)
+    return result
+@router.post("/group_anagrams")
+def group_anagrams(data: GroupAnagrams):
+    result = Solution.groupAnagrams(data.strs)
     return result
